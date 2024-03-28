@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-MY');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Highway Rider Extreme_</title>
+  <style>
+    .full-screen {
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+
+  
+
+</head>
+
+<body id="full-screen-body" class="full-screen">
+  <iframe id="gameFrame" name="" src="https://highwayriderextreme.github.io/" class="full-screen"></iframe>
+</body>
+
+<script type="text/javascript">
+  function setBodyAspectRatio() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const screenRatio = screenWidth / screenHeight;
+
+    const body = document.getElementById('full-screen-body');
+    const bodyWidth = body.offsetWidth;
+    const bodyHeight = body.offsetHeight;
+    const bodyRatio = bodyWidth / bodyHeight;
+
+    if (bodyRatio > screenRatio) {
+      // 如果body宽高比大于屏幕宽高比,设置padding-bottom使body高度增加
+      const newHeight = bodyWidth / screenRatio;
+      const paddingBottom = newHeight - bodyHeight;
+      body.style.paddingBottom = `${paddingBottom}px`;
+    } else {
+      // 如果body宽高比小于屏幕宽高比,移除padding-bottom
+      body.style.paddingBottom = '';
+    }
+  }
+
+  // 初始化时设置一次
+  setBodyAspectRatio();
+
+  // 监听窗口大小变化,调整body宽高比
+  window.addEventListener('resize', setBodyAspectRatio);
+</script>
+</html>
